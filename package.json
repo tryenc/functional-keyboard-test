@@ -1,0 +1,21 @@
+{
+  "name": "functional-keyboard-test",
+  "version": "1.0.0",
+  "description": "Automated tests to verify a11y keyboard support requirements are met",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio wdio.conf.js"
+  },
+  "author": "Chris Tryens",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1",
+    "wdio-cucumber-framework": "1.1.1",
+    "wdio-dot-reporter": "0.0.9",
+    "wdio-junit-reporter": "^0.4.2",
+    "wdio-selenium-standalone-service": "0.0.10",
+    "wdio-spec-reporter": "^0.1.4",
+    "webdriverio": "^4.12.0"
+  }
+}
