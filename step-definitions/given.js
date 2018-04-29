@@ -23,7 +23,7 @@ Given(
 );
 
 Given(
-  /^the element with text "([^"]*)?" is( not)* checked$/,
+  /^the element "([^"]*)?" is( not)* checked$/,
   isChecked
 );
 

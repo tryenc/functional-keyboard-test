@@ -13,7 +13,7 @@ Then(
 );
 
 Then(
-  /^I expect the element with text "([^"]*)?" is( not)* checked$/,
+  /^I expect the element "([^"]*)?" is( not)* checked$/,
   isChecked
 );
 

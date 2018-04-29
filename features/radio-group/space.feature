@@ -6,6 +6,6 @@ Feature: Radio Group Keyboard Support Space
     Given I click on the element with text "Thin crust"
     And I type "Tab"
     And the element with text "Pickup" is focused
-    And the element with text "Pickup" is not checked
+    And the element "div=Pickup" is not checked
     When I type "Space"
-    Then I expect the element with text "Pickup" is checked
+    Then I expect the element "div=Pickup" is checked

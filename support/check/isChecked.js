@@ -3,8 +3,9 @@
  * @param  {String}   selector  Element selector
  * @param  {String}   falseCase Whether to check if the given element is checked or not
  */
-module.exports = (text, falseCase) => {
-  const element = $(`div=${text}`);
+module.exports = (selector, falseCase) => {
+  const element = $(selector);
+  // const element = $(`div=${text}`);
 
   const isAriaChecked = element.getAttribute('aria-checked') === 'true';
   const isChecked = element.getAttribute('checked');
