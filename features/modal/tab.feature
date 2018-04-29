@@ -4,12 +4,15 @@ Feature: Modal Keyboard Support Tab
     And I click on the element "button=Add Delivery Address"
 
   Scenario: Moves focus to next focusable element inside the dialog
-    Given I click on the element "#idRed"
-    And I type "Tab"
-    And I type "End"
-    And the element "#idRedValue" has a value of "255"
-    And the element "#idRedValue" has a step value of "1"
-    When I type "PageDown"
-    Then I expect the element "#idRedValue" has a value less than "254"
+    Given the element "#dialog1 > div.dialog_form > div:nth-child(1) > label > input" is focused
+    When I type "Tab"
+    Then I expect the element "#dialog1 > div.dialog_form > div:nth-child(2) > label > input" is focused
 
-#dialog1 > div.dialog_form > div:nth-child(1) > label > input
+  Scenario: When focus is on the last focusable element in the dialog, moves focus to the first focusable element in the dialog
+    Given I click on the element "#special_instructions"
+    And I type "Tab"
+    And I type "Tab"
+    And I type "Tab"
+    And the element "button=Cancel" is focused
+    When I type "Tab"
+    Then I expect the element "#dialog1 > div.dialog_form > div:nth-child(1) > label > input" is focused

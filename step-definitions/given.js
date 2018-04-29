@@ -4,6 +4,7 @@ const isChecked = require('../support/check/isChecked.js');
 const hasAValueOf = require('../support/check/hasAValueOf.js');
 const isSetToMaxValue = require('../support/check/isSetToMaxValue.js');
 const hasAStepValueOf = require('../support/check/hasAStepValueOf.js');
+const isVisible = require('../support/check/isVisible.js');
 
 Given(/^I open the site "([^"]*)?"$/, url => {
   return browser.url(url);
@@ -25,6 +26,11 @@ Given(
 Given(
   /^the element "([^"]*)?" is( not)* checked$/,
   isChecked
+);
+
+Given(
+  /^the element "([^"]*)?" is( not)* visible$/,
+  isVisible
 );
 
 Given(

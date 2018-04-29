@@ -6,6 +6,7 @@ const isSetToMaxValue = require('../support/check/isSetToMaxValue.js');
 const isSetToMinValue = require('../support/check/isSetToMinValue.js');
 const hasAValueGreaterThan = require('../support/check/hasAValueGreaterThan.js');
 const hasAValueLessThan = require('../support/check/hasAValueLessThan.js');
+const isVisible = require('../support/check/isVisible.js');
 
 Then(
   /^I expect the element "([^"]*)?" is( not)* focused$/,
@@ -20,6 +21,11 @@ Then(
 Then(
   /^I expect the element "([^"]*)?" has a value of "([^"]*)?"$/,
   hasAValueOf
+);
+
+Then(
+  /^I expect the element "([^"]*)?" is( not)* visible$/,
+  isVisible
 );
 
 Then(
