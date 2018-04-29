@@ -5,7 +5,6 @@
  */
 module.exports = (selector, falseCase) => {
   const element = $(selector);
-  // const element = $(`div=${text}`);
 
   const isAriaChecked = element.getAttribute('aria-checked') === 'true';
   const isChecked = element.getAttribute('checked');

@@ -4,12 +4,13 @@
  * @param  {String}   falseCase Whether to check if the given element has focus
  *                              or not
  */
-module.exports = (text, falseCase) => {
+module.exports = (selector, falseCase) => {
   /**
    * Value of the hasFocus function for the given element
    * @type {Boolean}
    */
-  const hasFocus = browser.hasFocus(`div*=${text}`);
+  const hasFocus = browser.hasFocus(selector);
+  // const hasFocus = browser.hasFocus(`div*=${text}`);
 
   if (falseCase) {
     expect(hasFocus).to.not

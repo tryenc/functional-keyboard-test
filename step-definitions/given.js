@@ -18,7 +18,7 @@ Given(/^I click on the element "([^"]*)?"$/, selector => {
 });
 
 Given(
-  /^the element with text "([^"]*)?" is( not)* focused$/,
+  /^the element "([^"]*)?" is( not)* focused$/,
   isFocused
 );
 

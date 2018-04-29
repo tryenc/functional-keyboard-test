@@ -3,15 +3,15 @@ Feature: Radio Group Keyboard Support Down Arrow
     Given I open the site "examples/radio/radio-1/radio-1.html"
 
   Scenario: Moves focus to and checks the next radio button in the group
-    Given I click on the element with text "Regular crust"
-    And the element with text "Regular crust" is focused
+    Given I click on the element "div=Regular crust"
+    And the element "div=Regular crust" is focused
     When I type "ArrowDown"
-    Then I expect the element with text "Deep dish" is focused
+    Then I expect the element "div=Deep dish" is focused
     And I expect the element "div=Deep dish" is checked
 
   Scenario: If focus is on the last radio button, moves focus to and checks the first radio button in the group
-    Given I click on the element with text "Thin crust"
-    And the element with text "Thin crust" is focused
+    Given I click on the element "div=Thin crust"
+    And the element "div=Thin crust" is focused
     When I type "ArrowDown"
-    Then I expect the element with text "Regular crust" is focused
+    Then I expect the element "div=Regular crust" is focused
     And I expect the element "div=Regular crust" is checked

@@ -8,7 +8,7 @@ const hasAValueGreaterThan = require('../support/check/hasAValueGreaterThan.js')
 const hasAValueLessThan = require('../support/check/hasAValueLessThan.js');
 
 Then(
-  /^I expect the element with text "([^"]*)?" is( not)* focused$/,
+  /^I expect the element "([^"]*)?" is( not)* focused$/,
   isFocused
 );
 
