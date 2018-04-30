@@ -1,9 +1,10 @@
 # functional-keyboard-test
 
-A boilerplate project for verifying that your site is accesible to users who can only interact with it through a keyboard.
+A boilerplate project for verifying that your site is accessible by testing keyboard support and, in some places, focus management.
 Tests verify that a keyboard user's expectations are met when interacting with different areas of your site. For example,
-when I open a modal, does the first actionable element in the modal have focus? Can I close it by pressing the Escape key and when I do, will focus go back to the element that had opened the modal in the first place? If focus is on a checkbox, if I press spacebar, will the checked status toggle? Test expectations are based on the
+when I open a modal, does the first actionable element in the modal have focus? Can I close it by pressing the Escape key and when I do, will focus go back to the element that had opened the modal in the first place? If focus is on a checkbox, if I press spacebar, will the checked status toggle?
 
+Test expectations are based on the [W3C's WAI-ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/) and tests are run against the example pages that they provide.
 # Motivation
 **INT. LIVING ROOM - NIGHT**
 
@@ -41,3 +42,5 @@ We all have expectations about how we can use our keyboard to interact with webs
 If you build a website that can't be navigated with a keyboard, it's like opening a business with steps but no ramp. You've inadvertently barred a portion of the population from being able to use it and you may also be opening yourself up to a lawsuit.
 
 There are a lot of accessibility testing tools out there, but it seems like most of them just verify your markup - do your image tags have alt attributes? Are you allowed to use that aria label on an element like this? It doesn't seem like there are many tools that are meant for testing functionality. Hence this repo.
+# Credits
+The file structure, the syntax for the step definitions, and some of the support functions were borrowed from W. Van Kuipers' repo, [cucumber-boilerplate](https://github.com/webdriverio/cucumber-boilerplate), which is an excellent resource if you're starting to convert your WebdriverIO tests to cucumber.
