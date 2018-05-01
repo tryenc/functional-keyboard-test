@@ -14,6 +14,16 @@ Given(/^I click on the element with text "([^"]*)?"$/, text => {
   browser.click(`div=${text}`);
 });
 
+Given(/^the element "([^"]*)?" does not contain the hidden text "([^"]*)?"$/, (selector, text) => {
+  var html = browser.getHTML(selector, false);
+  expect(html.indexOf(text)).to.equal(-1);
+});
+
+Given(/^the element "([^"]*)?" does contain the hidden text "([^"]*)?"$/, (selector, text) => {
+  var html = browser.getHTML(selector, false);
+  expect(html.indexOf(text)).to.be.above(-1);
+});
+
 Given(/^I click on the element "([^"]*)?"$/, selector => {
   browser.click(selector);
 });

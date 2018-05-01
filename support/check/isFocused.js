@@ -10,7 +10,6 @@ module.exports = (selector, falseCase) => {
    * @type {Boolean}
    */
   const hasFocus = browser.hasFocus(selector);
-  // const hasFocus = browser.hasFocus(`div*=${text}`);
 
   if (falseCase) {
     expect(hasFocus).to.not

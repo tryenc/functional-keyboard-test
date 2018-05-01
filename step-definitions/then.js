@@ -47,3 +47,13 @@ Then(
   /^I expect the element "([^"]*)?" is set to its minimum value$/,
   isSetToMinValue
 );
+
+Then(/^I expect the element "([^"]*)?" does not contain the hidden text "([^"]*)?"$/, (selector, text) => {
+  var html = browser.getHTML(selector, false);
+  expect(html.indexOf(text)).to.equal(-1);
+});
+
+Then(/^I expect the element "([^"]*)?" does contain the hidden text "([^"]*)?"$/, (selector, text) => {
+  var html = browser.getHTML(selector, false);
+  expect(html.indexOf(text)).to.be.above(-1);
+});
