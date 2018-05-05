@@ -1,31 +1,57 @@
 const {Given} = require('cucumber');
-const isFocused = require('../support/check/isFocused.js');
-const isChecked = require('../support/check/isChecked.js');
-const hasAValueOf = require('../support/check/hasAValueOf.js');
-const isSetToMaxValue = require('../support/check/isSetToMaxValue.js');
+
 const hasAStepValueOf = require('../support/check/hasAStepValueOf.js');
+const hasAValueOf = require('../support/check/hasAValueOf.js');
+const hasHiddenText = require('../support/check/hasHiddenText.js');
+const isChecked = require('../support/check/isChecked.js');
+const isFocused = require('../support/check/isFocused.js');
+const isSetToMaxValue = require('../support/check/isSetToMaxValue.js');
 const isVisible = require('../support/check/isVisible.js');
+const waitForVisible = require('../support/action/waitForVisible.js');
 
-Given(/^I open the site "([^"]*)?"$/, url => {
-  return browser.url(url);
-});
+Given(
+  /^I click on the element "([^"]*)?"$/,
+  selector => {browser.click(selector);}
+);
 
-Given(/^I click on the element with text "([^"]*)?"$/, text => {
-  browser.click(`div=${text}`);
-});
+Given(
+  /^I open the site "([^"]*)?"$/,
+  url => {browser.url(url);}
+);
 
-Given(/^I click on the element "([^"]*)?"$/, selector => {
-  browser.click(selector);
-});
+Given(
+  /^I wait (\d+) seconds?$/,
+  seconds => {browser.pause(seconds * 1000);}
+);
+
+Given(
+  /^I wait until the element "([^"]*)?" is( not)* visible$/,
+  waitForVisible
+);
+
+Given(
+  /^the element "([^"]*)?" does( not)* contain the hidden text "([^"]*)?"$/,
+  hasHiddenText
+);
+
+Given(
+  /^the element "([^"]*)?" has a step value of "([^"]*)?"$/,
+  hasAStepValueOf
+);
+
+Given(
+  /^the element "([^"]*)?" has a value of "([^"]*)?"$/,
+  hasAValueOf
+)
+;
+Given(
+  /^the element "([^"]*)?" is( not)* checked$/,
+  isChecked
+);
 
 Given(
   /^the element "([^"]*)?" is( not)* focused$/,
   isFocused
-);
-
-Given(
-  /^the element "([^"]*)?" is( not)* checked$/,
-  isChecked
 );
 
 Given(
@@ -34,16 +60,7 @@ Given(
 );
 
 Given(
-  /^the element "([^"]*)?" has a value of "([^"]*)?"$/,
-  hasAValueOf
-);
-
-Given(
   /^the element "([^"]*)?" is set to its maximum value$/,
   isSetToMaxValue
 );
 
-Given(
-  /^the element "([^"]*)?" has a step value of "([^"]*)?"$/,
-  hasAStepValueOf
-);
