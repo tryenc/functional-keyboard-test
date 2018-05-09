@@ -6,8 +6,6 @@
 module.exports = (selector, falseCase, text) => {
   const html = browser.getHTML(selector, false);
 
-  console.log('html', html);
-
   if(falseCase) {
     expect(html.indexOf(text)).to.equal(-1);
   } else {

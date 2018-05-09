@@ -20,8 +20,8 @@ Given(
 );
 
 Given(
-  /^I wait (\d+) seconds?$/,
-  seconds => {browser.pause(seconds * 1000);}
+  /^I wait (\d+) milliseconds?$/,
+  milliseconds => {browser.pause(milliseconds);}
 );
 
 Given(
