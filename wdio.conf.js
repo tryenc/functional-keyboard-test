@@ -16,7 +16,6 @@ exports.config = {
     ],
     // Patterns to exclude.
     exclude: [
-        // './features/carousel/animation.feature'
     ],
     //
     // ============
