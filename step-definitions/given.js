@@ -6,6 +6,7 @@ const hasHiddenText = require('../support/check/hasHiddenText.js');
 const isChecked = require('../support/check/isChecked.js');
 const isFocused = require('../support/check/isFocused.js');
 const isSetToMaxValue = require('../support/check/isSetToMaxValue.js');
+const isSelected = require('../support/check/isSelected.js');
 const isVisible = require('../support/check/isVisible.js');
 const waitForVisible = require('../support/action/waitForVisible.js');
 
@@ -52,6 +53,11 @@ Given(
 Given(
   /^the element "([^"]*)?" is( not)* focused$/,
   isFocused
+);
+
+Given(
+  /^the element "([^"]*)?" is( not)* selected$/,
+  isSelected
 );
 
 Given(

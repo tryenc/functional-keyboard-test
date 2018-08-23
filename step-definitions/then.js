@@ -8,6 +8,7 @@ const isChecked = require('../support/check/isChecked.js');
 const isFocused = require('../support/check/isFocused.js');
 const isSetToMaxValue = require('../support/check/isSetToMaxValue.js');
 const isSetToMinValue = require('../support/check/isSetToMinValue.js');
+const isSelected = require('../support/check/isSelected.js');
 const isVisible = require('../support/check/isVisible.js');
 
 Then(
@@ -18,6 +19,11 @@ Then(
 Then(
   /^I expect the element "([^"]*)?" is( not)* focused$/,
   isFocused
+);
+
+Then(
+  /^I expect the element "([^"]*)?" is( not)* selected$/,
+  isSelected
 );
 
 Then(
