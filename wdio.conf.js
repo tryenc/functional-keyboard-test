@@ -7,16 +7,16 @@ exports.config = {
     // Specify Test Files
     // ==================
     specs: [
-        './features/**/*.feature'
+        './features/*.feature'
     ],
     exclude: [
     ],
     // ============
     // Capabilities
     // ============
-    maxInstances: 1,
+    maxInstances: 3,
     capabilities: [{
-        maxInstances: 1,
+        maxInstances: 3,
         browserName: 'chrome'
     }],
     // ===================
@@ -64,9 +64,9 @@ exports.config = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         require: [
-            './step-definitions/given.js',
-            './step-definitions/then.js',
-            './step-definitions/when.js',
+            './features/step-definitions/given.js',
+            './features/step-definitions/then.js',
+            './features/step-definitions/when.js',
         ],        // <string[]> (file/dir) require files before executing features
         backtrace: false,   // <boolean> show full backtrace for errors
         compiler: [],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)

@@ -1,4 +1,4 @@
-Feature: Radio Group Keyboard Support Tab
+Feature: Radio Group Focus Management
   Background:
     Given I open the site "examples/radio/radio-1/radio-1.html"
 

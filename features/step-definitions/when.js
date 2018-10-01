@@ -1,8 +1,8 @@
 const {When} = require('cucumber');
 
-const moveMouseTo = require('../support/action/moveMouseTo.js');
-const typeKeys = require('../support/action/typeKeys.js');
-const waitForEvent = require('../support/action/waitForEvent.js');
+const moveMouseTo = require('../../support/action/moveMouseTo.js');
+const typeKeys = require('../../support/action/typeKeys.js');
+const waitForEvent = require('../../support/action/waitForEvent.js');
 
 When(
   /^I move my mouse to the element "([^"]*)?"$/,
