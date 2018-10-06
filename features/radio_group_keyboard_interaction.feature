@@ -6,64 +6,50 @@ Feature: Radio Group Keyboard Interaction
     Given I open the site "examples/radio/radio-1/radio-1.html"
 
   Scenario: Space: checks the focused radio button if it is not already checked
-    Given I right click on the element "div=Regular crust"
-    And the element "div=Regular crust" is focused
-    And the element "div=Regular crust" is not checked
+    Given I right click on the first radio button in the radio group "#rg1"
+    And the first radio button in the radio group "#rg1" is focused
+    And the first radio button in the radio group "#rg1" is not checked
     When I type "Space"
-    Then I expect the element "div=Regular crust" is checked
+    Then I expect the first radio button in the radio group "#rg1" is checked
 
-  Scenario Outline: Right Arrow and Down Arrow: move focus to the next radio button in the group, uncheck the previously focused button, and check the newly focused button.
-    Given I click on the first radio button in the radio group "#rg1"
-    And the first radio button in the radio group "#rg1" is focused
-    And the first radio button in the radio group "#rg1" is checked
-    When I type "<key>"
-    Then I expect the second radio button in the radio group "#rg1" is focused
-    And I expect the first radio button in the radio group "#rg1" is not checked
-    And I expect the second radio button in the radio group "#rg1" is checked
+  Scenario Outline: Right Arrow and Down Arrow: move focus to the next radio button in the group, uncheck the previously focused button, and check the newly focused button. If focus is on the last button, focus moves to the first button.
+    Given I click on the <button with focus before> in the radio group "#rg1"
+    And the <button with focus before> in the radio group "#rg1" is focused
+    And the <button with focus before> in the radio group "#rg1" is checked
+    When I type "<Right Arrow or Down Arrow>"
+    Then I expect the <button with focus after> in the radio group "#rg1" is focused
+    And I expect the <button with focus before> in the radio group "#rg1" is not checked
+    And I expect the <button with focus after> in the radio group "#rg1" is checked
 
-    Examples:
-      | key        |
-      | ArrowRight |
-      | ArrowDown  |
+    Examples: When focus is on any button except for the last one
+      | button with focus before | Right Arrow or Down Arrow | button with focus after |
+      | first radio button       | ArrowRight                | second radio button     |
+      | second radio button      | ArrowRight                | last radio button       |
+      | first radio button       | ArrowDown                 | second radio button     |
+      | second radio button      | ArrowDown                 | last radio button       |
 
-  Scenario Outline: Right Arrow and Down Arrow: if focus is on the last button in the group, focus moves to the first button in the group, uncheck the previously focused button, and check the newly focused button.
-    Given I click on the last radio button in the radio group "#rg1"
-    And the last radio button in the radio group "#rg1" is focused
-    And the last radio button in the radio group "#rg1" is checked
-    When I type "<key>"
-    Then I expect the first radio button in the radio group "#rg1" is focused
-    And I expect the last radio button in the radio group "#rg1" is not checked
-    And I expect the first radio button in the radio group "#rg1" is checked
+    Examples: When focus is on the last button
+      | button with focus before | Right Arrow or Down Arrow | button with focus after |
+      | last radio button        | ArrowRight                | first radio button      |
+      | last radio button        | ArrowDown                 | first radio button      |
 
-    Examples:
-      | key        |
-      | ArrowRight |
-      | ArrowDown  |
+  Scenario Outline: Left Arrow and Up Arrow: move focus to the previous radio button in the group, uncheck the previously focused button, and check the newly focused button. If focus is on the first button, focus moves to the last button.
+    Given I click on the <button with focus before> in the radio group "#rg1"
+    And the <button with focus before> in the radio group "#rg1" is focused
+    And the <button with focus before> in the radio group "#rg1" is checked
+    When I type "<Left Arrow or Up Arrow>"
+    Then I expect the <button with focus after> in the radio group "#rg1" is focused
+    And I expect the <button with focus before> in the radio group "#rg1" is not checked
+    And I expect the <button with focus after> in the radio group "#rg1" is checked
 
-  Scenario Outline: Left Arrow and Up Arrow: move focus to the previous radio button in the group, uncheck the previously focused button, and check the newly focused button.
-    Given I click on the element "div=Deep dish"
-    And the element "div=Deep dish" is focused
-    And the element "div=Deep dish" is checked
-    When I type "<key>"
-    Then I expect the first radio button in the radio group "#rg1" is focused
-    And I expect the element "div=Deep dish" is not checked
-    And I expect the first radio button in the radio group "#rg1" is checked
+    Examples: When focus is on any button except for the first one
+      | button with focus before  | Left Arrow or Up Arrow | button with focus after |
+      | second radio button       | ArrowLeft              | first radio button      |
+      | last radio button         | ArrowLeft              | second radio button     |
+      | second radio button       | ArrowUp                | first radio button      |
+      | last radio button         | ArrowUp                | second radio button     |
 
-    Examples:
-      | key       |
-      | ArrowLeft |
-      | ArrowUp   |
-
-  Scenario Outline: Left Arrow and Up Arrow: if focus is on the first button in the group, focus moves to the last button in the group, uncheck the previously focused button, and check the newly focused button.
-    Given I click on the first radio button in the radio group "#rg1"
-    And the first radio button in the radio group "#rg1" is focused
-    And the first radio button in the radio group "#rg1" is checked
-    When I type "<key>"
-    Then I expect the last radio button in the radio group "#rg1" is focused
-    And I expect the first radio button in the radio group "#rg1" is not checked
-    And I expect the last radio button in the radio group "#rg1" is checked
-
-    Examples:
-      | key       |
-      | ArrowLeft |
-      | ArrowUp   |
+    Examples: When focus is on the first button
+      | button with focus before | Left Arrow or Up Arrow | button with focus after |
+      | first radio button       | ArrowLeft              | last radio button       |
+      | first radio button       | ArrowUp                | last radio button       |
