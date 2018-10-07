@@ -1,5 +1,6 @@
 const { Given, Then } = require('cucumber');
 
+const areChecked = require("../../support/check/areChecked.js");
 const isChecked = require("../../support/check/isChecked.js");
 const isFocused = require("../../support/check/isFocused.js");
 
@@ -28,6 +29,13 @@ Given(
   /^I click on the last radio button in the radio group "([^"]*)?"$/,
   radioGroupSelector => {
     browser.click(`${radioGroupSelector} [role="radio"]:last-of-type`);
+  }
+);
+
+Given(
+  /^the radio buttons in the radio group "([^"]*)?" are( not)* checked$/,
+  (radioGroupSelector, falseCase) => {
+    areChecked(`${radioGroupSelector} [role="radio"]:first-of-type`, falseCase);
   }
 );
 
