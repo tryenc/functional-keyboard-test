@@ -5,7 +5,7 @@ Feature: Radio Group Keyboard Interaction
   Background:
     Given I open the site "examples/radio/radio-1/radio-1.html"
 
-  Scenario: Space: checks the focused radio button if it is not already checked
+  Scenario: Space: checks the focused radio button if it is not already checked.
     Given I right click on the first radio button in the radio group "#rg1"
     And the first radio button in the radio group "#rg1" is focused
     And the first radio button in the radio group "#rg1" is not checked

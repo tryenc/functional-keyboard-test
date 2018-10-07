@@ -43,31 +43,18 @@ exports.config = {
     // Default request retries count
     connectionRetryCount: 3,
     // Test runner services
-    // Services take over a specific job you don't want to take care of. They enhance
-    // your test setup with almost no effort. Unlike plugins, they don't add new
-    // commands. Instead, they hook themselves up into the test process.
     services: ['chromedriver'],
-    //
     // Framework you want to run your specs with.
-    // The following are supported: Mocha, Jasmine, and Cucumber
-    // see also: http://webdriver.io/guide/testrunner/frameworks.html
-    //
-    // Make sure you have the wdio adapter package for the specific framework installed
-    // before running any tests.
     framework: 'cucumber',
-    //
     // Test reporter for stdout.
-    // The only one supported by default is 'dot'
-    // see also: http://webdriver.io/guide/reporters/dot.html
     reporters: ['spec'],
-    //
-    // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         require: [
             './features/step-definitions/given.js',
             './features/step-definitions/then.js',
             './features/step-definitions/when.js',
             './features/step-definitions/radio_group_steps.js',
+            './features/step-definitions/listbox_steps.js',
         ],        // <string[]> (file/dir) require files before executing features
         backtrace: false,   // <boolean> show full backtrace for errors
         compiler: [],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -83,15 +70,9 @@ exports.config = {
         timeout: 200000000,     // <number> timeout for step definitions
         ignoreUndefinedDefinitions: false, // <boolean> Enable this config to treat undefined definitions as warnings.
     },
-
-    //
     // =====
     // Hooks
     // =====
-    // WebdriverIO provides several hooks you can use to interfere with the test process in order to enhance
-    // it and to build services around it. You can either apply a single function or an array of
-    // methods to it. If one of them returns with a promise, WebdriverIO will wait until that promise got
-    // resolved to continue.
     /**
      * Gets executed once before all workers get launched.
      * @param {Object} config wdio configuration object
